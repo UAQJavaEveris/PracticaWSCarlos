@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://mx.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://mx.com" xmlns:intf="http://mx.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://mx.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="Sludar">
+    <complexType/>
+   </element>
+   <element name="SludarResponse">
+    <complexType>
+     <sequence>
+      <element name="SludarReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="SludarNom">
+    <complexType>
+     <sequence>
+      <element name="nom" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="SludarNomResponse">
+    <complexType>
+     <sequence>
+      <element name="SludarNomReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="SludarRequest">
+
+      <wsdl:part element="impl:Sludar" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="SludarResponse">
+
+      <wsdl:part element="impl:SludarResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="SludarNomRequest">
+
+      <wsdl:part element="impl:SludarNom" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="SludarNomResponse">
+
+      <wsdl:part element="impl:SludarNomResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Saludo">
+
+      <wsdl:operation name="Sludar">
+
+         <wsdl:input message="impl:SludarRequest" name="SludarRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:SludarResponse" name="SludarResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="SludarNom">
+
+         <wsdl:input message="impl:SludarNomRequest" name="SludarNomRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:SludarNomResponse" name="SludarNomResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SaludoSoapBinding" type="impl:Saludo">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="Sludar">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="SludarRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="SludarResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="SludarNom">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="SludarNomRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="SludarNomResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SaludoService">
+
+      <wsdl:port binding="impl:SaludoSoapBinding" name="Saludo">
+
+         <wsdlsoap:address location="http://localhost:8080/WSSaludos/services/Saludo"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

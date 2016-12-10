@@ -1,0 +1,14 @@
+package com.mx.taller.everis;
+
+public class Saludo {
+	
+	public String Saludar()
+	{
+		return "Hola mundo desde WS";
+	}
+	public String getSaludar()
+	{
+		return "Hola mundo desde WS";
+	}
+
+}

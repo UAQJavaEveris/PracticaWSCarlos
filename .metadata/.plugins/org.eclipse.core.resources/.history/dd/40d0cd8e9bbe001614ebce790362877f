@@ -1,0 +1,60 @@
+package com.mx.taller.everis;
+
+public class SaludoProxy implements com.mx.taller.everis.Saludo {
+  private String _endpoint = null;
+  private com.mx.taller.everis.Saludo saludo = null;
+  
+  public SaludoProxy() {
+    _initSaludoProxy();
+  }
+  
+  public SaludoProxy(String endpoint) {
+    _endpoint = endpoint;
+    _initSaludoProxy();
+  }
+  
+  private void _initSaludoProxy() {
+    try {
+      saludo = (new com.mx.taller.everis.SaludoServiceLocator()).getSaludo();
+      if (saludo != null) {
+        if (_endpoint != null)
+          ((javax.xml.rpc.Stub)saludo)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
+        else
+          _endpoint = (String)((javax.xml.rpc.Stub)saludo)._getProperty("javax.xml.rpc.service.endpoint.address");
+      }
+      
+    }
+    catch (javax.xml.rpc.ServiceException serviceException) {}
+  }
+  
+  public String getEndpoint() {
+    return _endpoint;
+  }
+  
+  public void setEndpoint(String endpoint) {
+    _endpoint = endpoint;
+    if (saludo != null)
+      ((javax.xml.rpc.Stub)saludo)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
+    
+  }
+  
+  public com.mx.taller.everis.Saludo getSaludo() {
+    if (saludo == null)
+      _initSaludoProxy();
+    return saludo;
+  }
+  
+  public java.lang.String getSaludo() throws java.rmi.RemoteException{
+    if (saludo == null)
+      _initSaludoProxy();
+    return saludo.getSaludo();
+  }
+  
+  public java.lang.String getSaludoName(java.lang.String nombre) throws java.rmi.RemoteException{
+    if (saludo == null)
+      _initSaludoProxy();
+    return saludo.getSaludoName(nombre);
+  }
+  
+  
+}

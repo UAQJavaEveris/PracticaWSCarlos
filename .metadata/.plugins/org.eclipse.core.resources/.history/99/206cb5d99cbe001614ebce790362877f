@@ -1,0 +1,18 @@
+package com.mx.taller.java;
+import java.rmi.RemoteException;
+
+import com.mx.taller.everis.*;
+public class Test {
+
+	public static void main(String[] args) {
+		Saludo s=new SaludoProxy();
+		try {
+			s.saludar();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+
+	}
+
+}

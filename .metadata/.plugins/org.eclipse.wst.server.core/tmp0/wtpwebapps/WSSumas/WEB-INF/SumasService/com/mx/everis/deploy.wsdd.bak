@@ -1,0 +1,38 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from SumasService WSDL service -->
+
+  <service name="Sumas" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://everis.mx.com"/>
+      <parameter name="wsdlServiceElement" value="SumasService"/>
+      <parameter name="schemaQualified" value="http://everis.mx.com"/>
+      <parameter name="wsdlServicePort" value="Sumas"/>
+      <parameter name="className" value="com.mx.everis.SumasSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Sumas"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getSumaTresNumero" qname="operNS:getSumaTresNumero" xmlns:operNS="http://everis.mx.com" returnQName="retNS:getSumaTresNumeroReturn" xmlns:retNS="http://everis.mx.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:a" xmlns:pns="http://everis.mx.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:b" xmlns:pns="http://everis.mx.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:c" xmlns:pns="http://everis.mx.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getSumaArrayNum" qname="operNS:getSumaArrayNum" xmlns:operNS="http://everis.mx.com" returnQName="retNS:getSumaArrayNumReturn" xmlns:retNS="http://everis.mx.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:numEnteros" xmlns:pns="http://everis.mx.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getSuma" qname="operNS:getSuma" xmlns:operNS="http://everis.mx.com" returnQName="retNS:getSumaReturn" xmlns:retNS="http://everis.mx.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:a" xmlns:pns="http://everis.mx.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:b" xmlns:pns="http://everis.mx.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="getSuma getSumaArrayNum getSumaTresNumero"/>
+
+  </service>
+</deployment>

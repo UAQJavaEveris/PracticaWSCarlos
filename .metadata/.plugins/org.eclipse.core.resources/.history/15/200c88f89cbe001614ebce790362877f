@@ -1,0 +1,20 @@
+package com.mx.taller.java;
+import java.rmi.RemoteException;
+
+import com.mx.Saludo;
+import com.mx.SaludoProxy;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Saludo s=new SaludoProxy();
+		try {
+			s.sludar();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+
+	}
+
+}

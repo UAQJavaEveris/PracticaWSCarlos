@@ -1,0 +1,5 @@
+INDEX VERSION 1.3+C:\Users\juan-charly\Videos\Web\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3741619583.index
+3715388198.index
+616918181.index
+943261455.index
